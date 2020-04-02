@@ -102,7 +102,7 @@ This strategy pertains to all areas, including but not limited to:
 \end{itemize}
 As QM software development is a basic requirement for developing any good quality software and to eliminate systematic faults to achieve safety, the approach can be to start small i.e, show that LINUX development meets the requirements of a basic software development process (e.g. ISO/IEC 33000 series of standards \cite{ISO3300x:2015}, Capability Maturity Model Integration (CMMI) \cite{CMMI}, or Automotive SPICE \cite{ASPICE}). Once this is achieved the requirements of UL1998 \cite{UL1998} (less rigorous requirements compared to IEC61508/ISO26262) can be added, followed by requirements from IEC61508 and ISO26262 \cite{IEC61508:2010,ISO26262:2018}.
 \paragraph{Safety Claims}
-ELISA will work on safety claims of increasing complexity, starting with Linux based safety relevant systems of low complexity such as In Vehicle Information systems (IVI), which have no strict timing/performance requirements, opposed to most safety relevant automotive systems. 
+ELISA will work on safety claims of increasing complexity, starting with Linux based safety relevant systems of low complexity such as In Vehicle Infotainment systems (IVI), which have no strict timing/performance requirements, opposed to most safety relevant automotive systems. 
 Once for simple example systems a satisfactory safety argumentation is found and documented, it can be expanded to more complex systems.
 \paragraph{Architectures}
 Aligned with the increasing rigor approach, ELISA targets architectures of rising complexity to keep the scope as limited as possible at first, expanding to more complex architectures later on.
@@ -126,7 +126,7 @@ Qualify “convincing” parts of the examples
 \subsection{Development of a Safety argumentation}
 \subsubsection{Process - Tailoring and Equivalence argumentation}
 Since full compliance with any of the safety standards can not be argued for the Kernel development process at the moment, nor is it realistic to expect this to change in the near future, an equivalence argumentation is used to argue suitability for safety application of the Linux Kernel.
-To that end, it es necessary to map terms and processes of the Kernel development to the according steps in the V- process of the safety standards, and find equivalence arguments as to why the Kernel development process fulfills the intention behind the requirements of the safety standards. 
+To that end, it is necessary to map terms and processes of the Kernel development to the according steps in the V- process of the safety standards, and find equivalence arguments as to why the Kernel development process fulfills the intention behind the requirements of the safety standards. 
 %To close the interpretation gap it is necessary to map terms and processes to each other
 %Identify rationales in the safety standards (domain specific or IEC 61508)
 %Tailoring the safety standards according to the rationale
@@ -277,7 +277,7 @@ Problem now is getting acceptance and formal approval that Linux is suitable to 
 
 \section{OSS specific Challenges}
 \label{sec:OSS specific Challenges}
-In this section, we present major challenges ELISA faces and how they are being adressed in the following section.
+In this section, we present major challenges ELISA faces and how they are being addressed in the following section.
 
 \subsection{Updates and Change}
 \label{ssec:Updates and Change}
@@ -315,7 +315,7 @@ To create a Kernel model of sufficient granularity, several code analysis based 
 [reference to architecture group]
 
 \subsection{Linux Development Process Analysis}
-A big challenge is to argue the afforementioned equivalence with conventional safety standards 
+A big challenge is to argue the aforementioned equivalence with conventional safety standards 
 
 
 \section{Overcoming the Challenges}
@@ -350,7 +350,7 @@ Ignoring the possibly safety relevant bugs is not acceptable from a safety persp
 \subsubsection{Long term strategy}  
 
 \subsection{Freedom from Interference - Kernel Model}
-ELISA is currently focussing its activites in context of two use cases IVI And Open APS to understand
+ELISA is currently focussing its activites in context of two use cases IVI and Open APS to understand
 \begin{itemize} 
 	\item the safety requirements of the item that is allocated to the Kernel
 	\item the impact of incorrect functioning of the Kernel on the safety claim itself 
@@ -358,7 +358,7 @@ ELISA is currently focussing its activites in context of two use cases IVI And O
 The following assumptions are made at the start of the investigation.
 \begin{itemize}
 	\item 	only certain function layers of Linux kernel might be used for the specific use case. 
-	\item 	it is possible to trace the functions layers of the Kernel used for the specific use case and it is a small subset of the entire Kernel architecture space.
+	\item 	it is possible to trace the function layers of the Kernel used for the specific use case and it is a small subset of the entire Kernel architecture space.
 \end{itemize} 
 
 If the above assumption is validated “Criteria for coexistence” discussed by ISO26262 could be used to support Freedom from interference of the safety related functionalities and non-safety related functionalities of the Kernel to affect the safety functionality allocated to the Kernel. This will help to reduce the scope of Linux that will need to be qualified.
@@ -429,8 +429,7 @@ This introduction to OSS gives safety engineers, architects and legal people an 
 \item “Safety conscious” badge: considering safety as part of a project’s goals
 \item Identify a list of things that are used to build a safety argument that tend to be missing from open source projects
 \item Build on processes and principles that will be familiar to open source developers
-\item Template for patches to extract requirements
-\item e.g. Coding Guidelines, Coding review templates
+\item Template for patches to extract requirements e.g. Coding Guidelines, Coding review templates
 \item Understand how security considerations can also be applied to safety
 \item Show how “good” code fulfills the safety guidelines - “common sense” approach to safety
 \item One or more worked example of systems using the solution
