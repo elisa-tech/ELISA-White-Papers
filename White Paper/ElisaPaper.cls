@@ -5,7 +5,7 @@
 \LoadClass[a4paper]{article}
 %Packages
 \RequirePackage{verbatim}
-\RequirePackage{hyperref}
+\RequirePackage[hidelinks]{hyperref}
 \RequirePackage{xargs} 
 \RequirePackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
 \RequirePackage{booktabs}
