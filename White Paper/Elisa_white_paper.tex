@@ -17,24 +17,31 @@ We present our analysis of the challenges, outline long and short term plans on 
 \tableofcontents
 
 \section{The Problem at Hand and Normative Considerations}
-Domain safety standards have been developed based on the practices of companies that have not been using hardware concurrency (e.g. multicore processors), software with low complexity and very limited use of pre-existing and open-source software. 
-Hence, domain safety standards (ISO 26262 \cite{ISO26262:2018}, IEC 62304 \cite{IEC62304}, EN 50128 \cite{DINEN50128},...) have been written without considering dominant use of pre-existing complex elements, such as Linux and glibc, running on complex multi-core hardware. 
-For example, ISO 26262 has no appropriate classification of Linux as it is a “pre-existing software  (Part 8-12)” and it is evolving, but 8-12 applies only to unchanged SWCs (See ISO 26262-2 6-7.4.7). 
-Already this specific mismatch indicates that the standard committee did not consider Linux-based systems.
+Current safety standards have targeted systems which have low-complexity application software, which do not use hardware concurrency (e.g. multicore processors), and which use pre-existing and open-source software to a very limited extent. 
+Hence, various domain safety standards (ISO 26262 \cite{ISO26262:2018}, IEC 62304 \cite{IEC62304}, EN 50128 \cite{DINEN50128},...) do not consider pre-existing complex elements, such as Linux and glibc, running on complex multi-core hardware. 
+For example, ISO 26262 has no appropriate classification of Linux, which is a “pre-existing software  (Part 8-12).” 
+But Linux continues to evolve and Part 8-12 applies only to unchanged SWCs (See ISO 26262-2 6-7.4.7). 
+This specific mismatch already indicates that the ISO 26262 committee did not consider Linux-based systems.
 
-A cultural mismatch between the expectation of safety standards and the open-source work methodology is how change is handled, encouraging dynamics of change vs. very conservative change management.
-Hence, the safety standard has a poor fit on that subject.
+\commentJM {You're starting with an example without first motivating the problem...}
+An example of the cultural mismatch between the methodology expected by safety standards and the open-source work methodology is how change is handled; very conservative change management vs. encouraging dynamic change.
+Hence, ISO 26262 fits poorly on that subject as well.
 
-Therefore, a dedicated interpretation is required, either from IEC 61508 or deriving a new domain standard, e.g., for open-source software, extracting objectives from first principles and determining adjusted measures and techniques to provide evidence.
+Therefore, a dedicated interpretation for open-source software is required, either by interpreting IEC 61508 or by deriving a new domain standard, e.g. extracting objectives from first principles and determining which adjusted measures and techniques provide sufficient evidence of safety.
 
-As a Linux-based system by definition is a mixed-criticality system with parts being declared QM/SIL0 and others with safety classification, we must have a clear definition and criteria for evaluation of QM/SIL0 elements.
-Lack of a definition in the safety standards, e.g., ISO 26262 and IEC 61508, has led to some confusion.
+As a Linux-based system by definition is a mixed-criticality system with parts classified as QM/SIL0 and others with safety classification, there must be a clear definition and criteria for evaluation of QM/SIL0 elements.
+Lack of a definition of QM/SIL0 in the safety standards, e.g. ISO 26262 and IEC 61508, has already led to some confusion.
 
-Last but not least, safety standards are closed, limiting their reception, use and acceptance in the open-source community and lack the provision of rationales, which limits the ability to interpret the objectives without violating the intent.
+\commentJM {I don't know what this sentence is referring to.  61508 has objectives for each subclause and 26262 has objectives for each part. I don't really have trouble determining the intent.}
+Safety standards do not provide rationales, which limits the ability to interpret the objectives of the requirements without violating the intent.
+Last but not least, the standards are closed.
+This limits their acquisition, use and acceptance in the open-source community
 
-On the other side, open source projects frequently lack a formal description of their executed development process (safety plan) and explicit trace data (safety case).
+On the other side, open source projects frequently lack a formal description of the development process they follow (safety plan) and explicit trace data between the artefacts produced in each development phase (safety case).
 
-To enable Linux to play a part in safety-critical systems, this gap needs to be precisely analysed on both the technical and the process level, and all issues either mitigated on the user side or addressed by process improvements on the Kernel development side.
+To enable Linux to be incorporated in safety-critical systems, the gap between the activities practiced in open source project and those required by safety standards needs to be precisely analysed at both the technical and process levels.
+\commentJM {What does it mean to mitigate an issue on the user side?}
+All issues must be either mitigated on the user side or addressed by process improvements on the Kernel development side.
 
 \section{ELISA Strategy and Organization}
 In this section we describe the cornerstones of the ELISA strategy to enable Linux in safety applications and describe the organizational structure of the ELISA effort.
