@@ -14,22 +14,38 @@ The complexity of applications continues to increase, often necessitating softwa
 
 \section{Introduction}
 \subsection{Overview}
-The complexity of safety-related applications continues to increase, often necessitating software solutions for multitasking, e.g. use of operating systems such as Linux.  The embedded electronics and software used in these applications, including operating systems, may be required to comply with functional safety standards such as IEC 61508 and ISO 26262.  Example applications include self-driving cars, collaborative robots, etc.  
+The complexity of safety-related applications continues to increase, often necessitating software solutions for multitasking, e.g. use of operating systems such as Linux.  
+The embedded electronics and software used in these applications, including operating systems, may be required to comply with functional safety standards such as IEC 61508 and ISO 26262.  Example applications include self-driving cars, collaborative robots, etc.  
 
-Also worth considering are other applications, also complex in nature and in need of an operating system, that may perform a handful of basic safety-related functions such as voltage, current, and/or temperature monitoring.  These applications may not have the same level of risk (severity and/or probability) as the ones previously mentioned, but are safety-related nonetheless.  Examples include inverters for renewable energy applications, Battery Management Systems (BMSs), and Electric Vehicle (EV) chargers .
+Also worth considering are other applications, also complex in nature and in need of an operating system, that may perform a handful of basic safety-related functions such as voltage, current, and/or temperature monitoring.  
+These applications may not have the same level of risk (severity and/or probability) as the ones previously mentioned, but are safety-related nonetheless.  
+Examples include inverters for renewable energy applications, Battery Management Systems (BMSs), and Electric Vehicle (EV) chargers .
 
-These other applications usually do not require compliance with comprehensive functional safety standards such as IEC 61508, ISO 13849, ISO 26262, etc., but still likely require a level of assurance that any embedded software performing safety-related functions will do so reliably.  In these cases, standards such as ANSI/UL 1998, CSA C22.2 No. 0.8, or EN 50271 are used.  These three standards have specific requirements pertaining to third-party software including operating systems.
+These other applications usually do not require compliance with comprehensive functional safety standards such as IEC 61508, ISO 13849, ISO 26262, etc., but still likely require a level of assurance that any embedded software performing safety-related functions will do so reliably.  
+In these cases, standards such as ANSI/UL 1998, CSA C22.2 No. 0.8, or EN 50271 are used.  
+These three standards have specific requirements pertaining to third-party software including operating systems.
 
-The remainder of this document proposes potential compliance solutions with these standards when Linux is used as an operating system.  Each section of this document proposes actions to take for either the Developer, i.e. the software developer of the end product, or ELISA, i.e. the Enabling Linux for Safety Applications project. 
+The remainder of this document proposes potential compliance solutions with these standards when Linux is used as an operating system.  
+Each section of this document proposes actions to take for either the Developer, i.e. the software developer of the end product, or ELISA, i.e. the Enabling Linux for Safety Applications project. 
 
-While the solutions proposed in this document are not as sophisticated or comprehensive as those that would be needed for IEC 61508, ISO 13849, or ISO 26262, they have a similar objective to the requirements described in those standards.  Therefore, some of the proposed solutions could be reused for those standards as well, particularly for lower SILs (SIL 1), PLs (PL a, b, c), or ASILs (ASIL A, B).
+While the solutions proposed in this document are not as sophisticated or comprehensive as those that would be needed for IEC 61508, ISO 13849, or ISO 26262, they have a similar objective to the requirements described in those standards.  
+Therefore, some of the proposed solutions could be reused for those standards as well, particularly for lower SILs (SIL 1), PLs (PL a, b, c), or ASILs (ASIL A, B).
 
 \subsection{The Standards}
-ANSI/UL 1998 [ref. 1] is UL's standard for Software in Programmable Components and contains requirements for embedded software performing safety-related functions.  It is referenced in over 100 product safety standards and its application is not industry or product specific.  ANSI/UL 1998 defines operating systems developed by a third-party as Off-the-Shelf Software or OTS (definition 2.30).  Requirements for OTS are primarily contained in ANSI/UL 1998 Clause 13, but other clauses of the standard also indirectly impact OTS.
+ANSI/UL 1998 [ref. 1] is UL's standard for Software in Programmable Components and contains requirements for embedded software performing safety-related functions.  
+It is referenced in over 100 product safety standards and its application is not industry or product specific.  
+ANSI/UL 1998 defines operating systems developed by a third-party as Off-the-Shelf Software or OTS (definition 2.30).  
+Requirements for OTS are primarily contained in ANSI/UL 1998 Clause 13, but other clauses of the standard also indirectly impact OTS.
 
-CSA C22.2 No. 0.8 [ref. 2] is CSA's standard for Safety Functions Incorporating Electronic Technology, which applies to safety-related software.  Similar to ANSI/UL 1998, CSA C22.2 No. 0.8 is referenced in many product safety standards and its application is not industry or product specific.  CSA C22.2 No. 0.8 also defines operating systems developed by a third-party as Off-the-Shelf Software or OTS.  Requirements for OTS are primarily contained in CSA C22.2 No. 0.8 Clause 5.2.8, but other clauses of the standard also indirectly impact OTS.
+CSA C22.2 No. 0.8 [ref. 2] is CSA's standard for Safety Functions Incorporating Electronic Technology, which applies to safety-related software.
+Similar to ANSI/UL 1998, CSA C22.2 No. 0.8 is referenced in many product safety standards and its application is not industry or product specific.
+CSA C22.2 No. 0.8 also defines operating systems developed by a third-party as Off-the-Shelf Software or OTS.  
+Requirements for OTS are primarily contained in CSA C22.2 No. 0.8 Clause 5.2.8, but other clauses of the standard also indirectly impact OTS.
 
-EN 50271 [ref. 3] is the European Norm containing Requirements and Tests for Apparatus Using Software and/or Digital Technologies used for Electrical Apparatus for the Detection and Measurement of Combustible Gases, Toxic Gases, or Oxygen.  Unlike the previous two standards, EN 50271 is specific to one application: detection and measurement of gases.  EN 50271 has one clause, 4.3.2, that pertains to re-used or commercial operating systems, including ones that have not been certified to any standard.  Additional clauses of the standard also indirectly impact operating systems.
+EN 50271 [ref. 3] is the European Norm containing Requirements and Tests for Apparatus Using Software and/or Digital Technologies used for Electrical Apparatus for the Detection and Measurement of Combustible Gases, Toxic Gases, or Oxygen.  
+Unlike the previous two standards, EN 50271 is specific to one application: detection and measurement of gases.  
+EN 50271 has one clause, 4.3.2, that pertains to re-used or commercial operating systems, including ones that have not been certified to any standard.  
+Additional clauses of the standard also indirectly impact operating systems.
 
 \section{Information Requirements}
 \subsection{Developer}
@@ -69,7 +85,8 @@ Assemble a Manual for each Linux distribution that includes the following:
 \end{itemize}
 
 \section{Risk Analysis Requirements}
-Note: ANSI/UL 1998 and CSA C22.2 No. 0.8 require a Risk Analysis to identify appropriate safety measures, whereas EN 50271 prescribes how risks are addressed by design.  While what is required in theory depends on which standards are normative, it is the recommendation of the author that both this section and the Design Requirements section below are considered.
+Note: ANSI/UL 1998 and CSA C22.2 No. 0.8 require a Risk Analysis to identify appropriate safety measures, whereas EN 50271 prescribes how risks are addressed by design.  
+While what is required in theory depends on which standards are normative, it is the recommendation of the author that both this section and the Design Requirements section below are considered.
 
 \subsection{Developer}
 Responsible for conducting and documenting a Risk Analysis that determines:
@@ -83,7 +100,8 @@ Responsible for conducting and documenting a Risk Analysis that determines:
 \end{itemize}
 
 \subsection{ELISA}
-Rationale: a Risk Analysis cannot be conducted at the operating system level without considering the end application.  However, failure modes of operating systems such as Linux are known, and it is the author's recommendation to ELISA that foreseeable failure modes of operating systems are communicated clearly to the developer in a Fault Analysis to help facilitate the Developer's Risk Analysis.
+Rationale: a Risk Analysis cannot be conducted at the operating system level without considering the end application.  
+However, failure modes of operating systems such as Linux are known, and it is the author's recommendation to ELISA that foreseeable failure modes of operating systems are communicated clearly to the developer in a Fault Analysis to help facilitate the Developer's Risk Analysis.
 
 Assemble a Fault Analysis that identifies potential failure modes of the operating system, including consideration of:
 
@@ -213,7 +231,8 @@ In a Design Guide, provide recommendations for safety applications to satisfy th
 
 \end{itemize}
 
-Note that the recommendations above are aligned with architectures specified in various functional safety standards, including single-channel with periodic self-test for Class 1/B software in ANSI/UL 1998 and CSA C22.2 No. 0.8, 1oo1D architecture appropriate for SIL 1 in IEC 61508, and Category 2 architecture appropriate for PLs a, b, or c in ISO 13849.  Higher Classes, SILs, or PLs may be possible but will require more robust safety measures than the ones described above.
+Note that the recommendations above are aligned with architectures specified in various functional safety standards, including single-channel with periodic self-test for Class 1/B software in ANSI/UL 1998 and CSA C22.2 No. 0.8, 1oo1D architecture appropriate for SIL 1 in IEC 61508, and Category 2 architecture appropriate for PLs a, b, or c in ISO 13849.  
+Higher Classes, SILs, or PLs may be possible but will require more robust safety measures than the ones described above.
 
 \section{Verification and Validation Requirements}
 \subsection{Developer}
@@ -224,7 +243,7 @@ Note that the recommendations above are aligned with architectures specified in 
 
 \begin{itemize}
 
-\item Has been developed under a formal quality assurance program , including design and code reviews, validation testing against a documented set of safety requirements, documentation covering its operation and interface requirements [ref. 2, Clause 5.2.8ci], and verified and tested to the extent that risks involving the OTS software have been addressed [ref. 1, Clause 13.2a], or
+\item Has been developed under a formal quality assurance program, including design and code reviews, validation testing against a documented set of safety requirements, documentation covering its operation and interface requirements [ref. 2, Clause 5.2.8ci], and verified and tested to the extent that risks involving the OTS software have been addressed [ref. 1, Clause 13.2a], or
 
 \item Has been certified to meet defined requirements by an independent assessor [ref. 1, Clause 13.2b; ref. 2, Clause 5.2.8cii]
 
